@@ -10,7 +10,7 @@ export class ListaDeCompraService {
     {
       "id": 1,
       "nome": "Queijo prato",
-      "data": "Segunda-feira (31/10/2022) às 08:30",
+      "data": "Segunda-feira (31/10/2022) às 09:00",
       "comprado": false
     },
     {
@@ -22,7 +22,7 @@ export class ListaDeCompraService {
     {
       "id": 3,
       "nome": "Mamão papaia",
-      "data": "Segunda-feira (31/10/2022) às 08:30",
+      "data": "Segunda-feira (31/10/2022) às 22:15",
       "comprado": true
     },
   ]
@@ -34,4 +34,42 @@ export class ListaDeCompraService {
   getListaDeCompra(){
     return this.listaDeCompra;
   }
-}
+
+  criarItem(nomeItem : string){
+    const idNovo = this.listaDeCompra.length + 1;
+
+    const item : Item = {
+      id: idNovo,
+      nome: nomeItem,
+      data: new Date().toLocaleDateString('pt-BR'),
+      comprado: false
+    }
+    return item;
+  }
+
+  adicionarItemNaLista(nomeDoItem: string){
+    const novoItem = this.criarItem(nomeDoItem);
+    this.listaDeCompra.push(novoItem);
+    }
+
+    editarItemDaLista(itemAntigo: Item, nomeEditadoDoItem: string){
+      const itemEditado: Item ={
+        id: itemAntigo.id,
+        nome: nomeEditadoDoItem,
+        data: new,
+        comprado: itemAntigo.comprado
+      }
+
+      const id = itemAntigo.id;
+      const index = this.listaDeCompra.findIndex(item => item.id == id);
+      this.listaDeCompra[index] = itemEditado;
+    }
+  }
+
+
+
+
+
+
+
+
