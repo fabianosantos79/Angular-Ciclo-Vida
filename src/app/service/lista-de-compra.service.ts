@@ -56,7 +56,7 @@ export class ListaDeCompraService {
       const itemEditado: Item ={
         id: itemAntigo.id,
         nome: nomeEditadoDoItem,
-        data: new,
+        data: itemAntigo.data,
         comprado: itemAntigo.comprado
       }
 
